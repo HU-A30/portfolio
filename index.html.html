@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussein Abbood Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            color: #00a8cc;
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555555;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #00a8cc;
+        }
+
+        /* Home Section */
+        #home {
+            min-height: calc(100vh - 64px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .profile-img-container {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 4px solid #00a8cc;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #111111;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #555555;
+            margin-bottom: 30px;
+            max-width: 750px;
+        }
+
+        .cv-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #00a8cc;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0, 168, 204, 0.3);
+            transition: background 0.2s;
+        }
+
+        .cv-btn:hover {
+            background-color: #0088a3;
+        }
+
+        /* Circular Shortcuts */
+        .shortcuts-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .circle-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 110px;
+            height: 110px;
+            border: 2.5px solid #00a8cc;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #555555;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .circle-card i {
+            font-size: 24px;
+            color: #00a8cc;
+            margin-bottom: 6px;
+        }
+
+        .circle-card:hover {
+            background-color: #00a8cc;
+            color: #ffffff;
+            transform: translateY(-5px);
+        }
+
+        .circle-card:hover i {
+            color: #ffffff;
+        }
+
+        /* Showcase Sections styling */
+        .section {
+            padding: 80px 80px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-container {
+            max-width: 900px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        /* Alternating backgrounds for clear view */
+        #about { background-color: #f9f9f9; }
+        #experience { background-color: #ffffff; }
+        #education { background-color: #f9f9f9; }
+        #contact { background-color: #ffffff; }
+
+        .section h2 {
+            font-size: 32px;
+            color: #111;
+            margin-bottom: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3.5px;
+            background-color: #00a8cc;
+            margin: 8px auto 0 auto;
+        }
+
+        .intro-text {
+            font-size: 17px;
+            text-align: justify;
+            color: #444444;
+            margin-bottom: 30px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .skill-category {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 4px solid #00a8cc;
+        }
+
+        .skill-category h3 {
+            font-size: 16px;
+            color: #111111;
+            margin-bottom: 10px;
+        }
+
+        .skill-category p {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .entry-block {
+            margin-bottom: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        #experience .entry-block {
+            background: #f9f9f9;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .entry-title {
+            font-size: 19px;
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .entry-date {
+            font-size: 14px;
+            color: #00a8cc;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .entry-sub {
+            font-size: 15px;
+            color: #666666;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .entry-bullets {
+            list-style-type: none;
+        }
+
+        .entry-bullets li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 14.5px;
+            color: #444444;
+            text-align: justify;
+        }
+
+        .entry-bullets li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #00a8cc;
+            font-size: 12px;
+        }
+
+        .entry-bullets li strong {
+            color: #111111;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #444444;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            background: #00a8cc;
+            color: white;
+        }
+
+        .contact-item i {
+            color: #00a8cc;
+            font-size: 18px;
+        }
+
+        .contact-item:hover i {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #16161a;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .social-icons { margin-bottom: 15px; }
+        .social-icons a { color: #ffffff; margin: 0 15px; font-size: 20px; transition: color 0.2s; }
+        .social-icons a:hover { color: #00a8cc; }
+        footer p { font-size: 12px; color: #888888; }
+
+        @media (max-width: 768px) {
+            header { padding: 20px 30px; flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; }
+            .section { padding: 60px 20px; }
+            .entry-header { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#home" class="logo">Hussein Abbood</a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="profile-img-container">
+            <img src="AANC7053.JPG" alt="Hussein Abbood">
+        </div>
+
+        <h1>Hussein Abbood</h1>
+        <p class="tagline">Full-Stack Developer & Systems IT Professional specializing in secure network infrastructures, software frameworks, and automated system layers.</p>
+
+        <a href="PIP/Hussein_Saad_Abbood_CV.pdf" download="Hussein_Saad_Abbood_CV.pdf" class="cv-btn">
+            <i class="fa-solid fa-download"></i> Download CV
+        </a>
+
+        <div class="shortcuts-container">
+            <a href="#about" class="circle-card">
+                <i class="fa-regular fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="#experience" class="circle-card">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Experience</span>
+            </a>
+            <a href="#education" class="circle-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Education</span>
+            </a>
+            <a href="#contact" class="circle-card">
+                <i class="fa-solid fa-phone"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>Professional Summary</h2>
+        <div class="content-container">
+            <p class="intro-text">
+                A highly analytical Full-Stack Developer and Systems IT Professional combining 5 years of programming expertise (Python, C++, JavaScript, HTML5) with an unshakeable background in engineering mathematics, logic, and secure infrastructure. Fast-tracked into higher-level computing studies via an official 90-credit university exemption awarded for proven undergraduate STEM capabilities. Possesses distinct capabilities in secure network engineering, Linux administration, and technical problem-solving . Complements core technical engineering skills with professional experience as a Freelance Bilingual Arabic-English Interpreter, showcasing high mental agility, precision execution, and elite cross-functional communication under pressure.
+            </p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-code" style="color:#00a8cc; margin-right:8px;"></i> Software Development</h3>
+                    <p>Python, C++, JavaScript, HTML5, Object-Oriented Programming (OOP) </p>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-terminal" style="color:#00a8cc; margin-right:8px;"></i> Systems & DevOps</h3>
+                    <p>Linux Administration (Kali, Ubuntu), Shell Scripting, Data Filtering (grep, wc), journalctl Logging </p>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-shield-halved" style="color:#00a8cc; margin-right:8px;"></i> Networking & Security</h3>
+                    <p>Cisco Packet Tracer, Wireshark Packet Analysis, TCP/IP, Routing Tables, Network Protocols (ARP, DHCP, ICMP)</p>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-compass-drafting" style="color:#00a8cc; margin-right:8px;"></i> Design & Blueprinting</h3>
+                    <p>Computer-Aided Design (CAD), Multi-View Technical Drawings, 5-View Orthographic Layouts, Dimensional Tolerances </p>
+                </div>
+                <div class="skill-category" style="grid-column: 1 / -1;">
+                    <h3><i class="fa-solid fa-language" style="color:#00a8cc; margin-right:8px;"></i> Languages</h3>
+                    <p><strong>English:</strong> Fluent / Higher Communication Certified  | <strong>Arabic:</strong> Native </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2>Technical Projects & Experience</h2>
+        <div class="content-container">
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">Full-Stack & Systems Developer</span>
+                    <span class="entry-date">2020 – 2026</span>
+                </div>
+                <div class="entry-sub">Independent & Academic Initiatives</div>
+                <ul class="entry-bullets">
+                    <li><strong>Frontend Integration:</strong> Designed and engineered responsive data management platforms using HTML5 and JavaScript to modernize legacy spreadsheet workflows into interactive, secure web tables.</li>
+                    <li><strong>Backend Architecture:</strong> Developed custom data parsing scripts and server-side validation tools using Python and C++ anchored on strict Object-Oriented Programming (OOP) design patterns.</li>
+                    <li><strong>Infrastructure & DevOps:</strong> Deployed applications inside custom Linux sandboxes, managing configurations, system logs via journalctl, and running terminal filters (grep, wc) to audit environment integrity.</li>
+                </ul>
+            </div>
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">Freelance Bilingual Interpreter & Translator</span>
+                    <span class="entry-date">2024 – Present</span>
+                </div>
+                <div class="entry-sub">Language Services UK Limited (LSUK) — Glasgow, UK (Hybrid) </div>
+                <ul class="entry-bullets">
+                    <li>Deliver accurate, real-time Arabic-English verbal interpretation for complex legal and medical appointments, ensuring cross-cultural comprehension and adherence to strict confidentiality guidelines.</li>
+                    <li>Translate intricate technical and industry-specific terminology under fast-paced, high-pressure environments.</li>
+                </ul>
+            </div>
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">Technical Hardware Consultant</span>
+                    <span class="entry-date">2012 – 2026 </span>
+                </div>
+                <div class="entry-sub">Freelance — Najaf, Iraq </div>
+                <ul class="entry-bullets">
+                    <li>Executed advanced hardware diagnostic routines, component-level isolation, micro-soldering, and performance tuning for custom server architectures, desktop systems, smartphones, and corporate consumer device.</li>
+                </ul>
+            </div>
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">Logistics Specialist</span>
+                    <span class="entry-date">2023 – 2026 </span>
+                </div>
+                <div class="entry-sub">Just Eat — Glasgow, UK </div>
+                <ul class="entry-bullets">
+                    <li>Coordinated time-critical delivery operations with a 100% reliability rating spanning 2,400+ distinct orders.</li>
+                    <li>Performed precise analytical data tracking of vehicle operational parameters, distance metrics, and fuel optimization.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <h2>Education</h2>
+        <div class="content-container">
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">BSc (Honours) Computing and IT </span>
+                    <span class="entry-date">2025 – Present </span>
+                </div>
+                <div class="entry-sub">The Open University — Glasgow, UK /div>
+                <ul class="entry-bullets">
+                    <li><strong>Academic Fast-Track:</strong> Awarded a prestigious 90-Credit Transfer Exemption by the Qualifications Committee based on prior rigorous undergraduate STEM coursework successfully completed at the University of Glasgow.</li>
+                    <li><strong>Exempted Modules:</strong> MST124 (Essential Mathematics 1), TM111 (Introduction to Computing & IT 1), and TM112 (Introduction to Computing & IT 2).</li>
+                    <li><strong>Current Status:</strong> Stage 1 curriculum fully achieved; Final EMA Submitted with results pending. Directly progressing into advanced Stage 2 software architecture, scripting languages, and network security environments.</li>
+                </ul>
+            </div>
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">Undergraduate Coursework (Computing & Mathematics) </span>
+                    <span class="entry-date">2020 – 2023 </span>
+                </div>
+                <div class="entry-sub">University of Glasgow — Glasgow, UK </div>
+                <ul class="entry-bullets">
+                    <li><strong>Software Foundations:</strong> Cultivated intermediate software engineering frameworks, specializing heavily in foundational Python programming, structural syntax design, and core algorithmic data structures.</li>
+                    <li><strong>Scientific Analytics:</strong> Successfully completed rigorous university curricula in Astrophysics, Exploring the Cosmos, and Statistics, gaining deep expertise in mapping complex data systems and utilizing statistical models for predictive logic.</li>
+                </ul>
+            </div>
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">Access to Engineering (1-Year Intensive Program)</span>
+                    <span class="entry-date">Passed 2019</span>
+                </div>
+                <div class="entry-sub">Glasgow Kelvin College — Glasgow, UK </div>
+                <ul class="entry-bullets">
+                    <li><strong>Qualifications Achieved:</strong> Awarded certifications in Higher Mathematics, Higher Physics, and Higher Communication in English.</li>
+                    <li><strong>Key Skills:</strong> Mastered advanced quantitative logic, structural problem-solving, and professional technical writing.</li>
+                </ul>
+            </div>
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">NQ Level 5 Mechanical & Manufacturing Engineering </span>
+                    <span class="entry-date">Passed 2018 </span>
+                </div>
+                <div class="entry-sub">Glasgow Kelvin College — Glasgow, UK /div>
+                <ul class="entry-bullets">
+                    <li><strong>Engineering Architecture & Spatial Design:</strong> Mastered complex mechanical blueprinting architectures, producing high-precision structural blueprints including Complete Multi-View Technical Drawings and Standard 5-View Orthographic Layouts using strict technical parameters.</li>
+                    <li><strong>Computer-Aided Design (CAD):</strong> Deployed industrial CAD environments to map out, program, render, and simulate multi-component structural projects before actual manufacturing.</li>
+                    <li><strong>Full Production Lifecycle:</strong> Engineered end-to-end multi-disciplinary manufacturing projects, controlling structural workflows from material science and property selection to physical fabrication (rolling, drilling mechanisms) and automated Computer Numerical Control (CNC) operations .</li>
+                    <li><strong>Technical Reporting & Analytics:</strong> Authored detailed, rigorous project performance documentation, analytical breakdowns of raw material boundaries, and workflow integration reports.</li>
+                    <li><strong>Collaborative Operations:</strong> Successfully collaborated with engineering teams to coordinate project build timelines, analyze technical constraints, and maintain strict structural safety and accuracy guidelines.</li>
+                </ul>
+            </div>
+
+            <div class="entry-block">
+                <div class="entry-header">
+                    <span class="entry-title">Primary & Secondary Comprehensive Schooling </span>
+                    <span class="entry-date">2001 – 2013 </span>
+                </div>
+                <div class="entry-sub">Abdul Razzaq Mohieddin School & Al-Asefa Primary School — Najaf, Iraq </div>
+                <ul class="entry-bullets">
+                    <li><strong>Academic Curriculum:</strong> Completed 6 years of primary education, 3 years of intermediate secondary school, and 3 years of preparatory high school (Scientific Track).</li>
+                    <li><strong>Scope of Study:</strong> Rigorously studied every single subject in the national academic curriculum, building a multi-disciplinary foundational proficiency across advanced mathematics, physics, chemistry, biology, history, Arabic, and English.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <div class="content-container" style="text-align: center;">
+            <p class="intro-text" style="text-align: center;">If you are looking for an analytical technician capable of maintaining infrastructure, developing secure systems, or translating technical operations, let's connect.</p>
+            
+            <div class="contact-details">
+                <a href="tel:07789453940" class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>07789453940</span>
+                </a>
+                <a href="mailto:abbood.h30@gmail.com" class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>abbood.h30@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/hussein-abbood-87920a301/" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/HU-A30" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-github"></i>
+                    <span>github.com/HU-A30</span>
+                </a>
+                <span class="contact-item" style="cursor: default;">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Glasgow, Scotland </span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/hussein-abbood-87920a301/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/HU-A30" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p>&copy; 2026 Hussein Abbood. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
